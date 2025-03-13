@@ -38,16 +38,18 @@ export class UrlService {
       shortUrl,
       createdAt: new Date(),
     };
-    console.log(`shortUrl: ${shortUrl}, url: ${JSON.stringify(url)}`);
+    console.log(`(create) shortUrl: ${shortUrl}, url: ${JSON.stringify(url)}`);
 
     this.urls.set(shortUrl, url);
+    console.log(`(create) urls after adding new url:`, Object.fromEntries(this.urls));
     return url;
   }
 
   findByShortUrl(shortUrl: string): Url {
+    console.log(`(findByShortUrl) getting longUrl for shortUrl: ${shortUrl}`);
     const url = this.urls.get(shortUrl);
-    console.log(`urls: ${JSON.stringify(this.urls)}`);
-    console.log(`url: ${JSON.stringify(url)}`);
+    console.log(`(findByShortUrl) urls:`, Object.fromEntries(this.urls));
+    console.log(`(findByShortUrl) url: ${JSON.stringify(url)}`);
     if (!url) {
       throw new NotFoundException('URL not found');
     }
