@@ -1,0 +1,1 @@
+export const URL_MODEL = 'URL_MODEL';

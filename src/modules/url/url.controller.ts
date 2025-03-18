@@ -14,7 +14,7 @@ export class UrlController {
   @Get(':shortUrl')
   @Redirect()
   async redirect(@Param('shortUrl') shortUrl: string) {
-    const url = this.urlService.findByShortUrl(shortUrl);
-    return { url: url.longUrl };
+    const url: String = await this.urlService.findByShortUrl(shortUrl);
+    return { url };
   }
 } 
